@@ -1,7 +1,7 @@
 defmodule Pande.PageController do
   use Pande.Web, :controller
   alias Pande.User
-  # alias Pande.Category
+  alias Pande.Category
   alias Pande.Article
 
   def index(conn, _params) do
@@ -9,6 +9,8 @@ defmodule Pande.PageController do
 	IO.inspect users
 	art_list = Article.article_list(Repo, 1, 10)
 	IO.inspect art_list
+	cates = Repo.all(Category)
+	IO.inspect cates
     render conn, "index.html", users: users
   end
 
