@@ -13,6 +13,7 @@ defmodule Pande.Article do
 		field :visit, :integer
 		field :praise, :integer
 		field :create_time, :integer
+		field :update_time, Ecto.DateTime
 		# timestamp
 	end
 

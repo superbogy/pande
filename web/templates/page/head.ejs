@@ -1,0 +1,59 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="螃蟹的博客 螃蟹在晨跑">
+
+    <title>博客 &ndash; <%=title%> &ndash; Pure</title>
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/pure.css">
+    <link rel="stylesheet" href="/css/grids-responsive-min.css">
+    <link rel="stylesheet" href="/css/layouts/blog.css">
+    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+</head>
+<body>
+<div id="layout" >
+    <div class="menu-link">menu</div>
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <div class="nav-home">
+                <form class="pure-form">
+                    <input type="text" class="pure-input-1 pure-search">
+                </form>
+                <div class="pure-menu pure-menu-open">
+                    <a class="pure-menu-heading">文章类别</a>
+                    <ul class="cate-list">
+                        <% category.forEach(function(cate, index){%>
+                        <li><a href="/cagory/<%- cate.id %>"><%- cate.name %></a></li>
+                        <%})%>
+                        <li class="pure-menu-heading">文章来源</li>
+                        <li><a href="#">原创</a></li>
+                        <li><a href="#">转载</a></li>
+                        <li><a href="#">摘录</a></li>
+                        <li class="back">返回</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="home" align="center" valign="middle">
+                <p><img class="side-me" src="/img/me.png" ></p>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a class="pure-button change-nav" href="#">分类</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="pure-button" href="#">时间</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="pure-button" href="#">关于</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

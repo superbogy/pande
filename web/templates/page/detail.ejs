@@ -1,0 +1,52 @@
+<% include head %>
+<div class="content pure-u-1 pure-u-md-3-4">
+    <div>
+        <!-- A wrapper for all the blog posts -->
+        <div class="posts">
+            <% var date = new Date(article.create_time * 1000);%>
+            <h1 class="content-subhead"><%= date.toDateString() %></h1>
+            <!-- A single blog post -->
+            <section class="post">
+                <header class="post-header">
+                    <img class="post-avatar" alt="Tilo Mitra&#x27;s avatar" height="48" width="48"
+                         src="/img/common/tilo-avatar.png">
+                    <h2 class="post-title"><a href="/<%- article.id %>"><%= article.title %></a></h2>
+                    <p class="post-meta">
+                        By <a href="#" class="post-author"><%= article['author'];%></a>
+                        <% var tags = article.tags.split(' ') %>
+                        <% for(var k in tags){ %>
+                        <% if(k % 3 == 0){ %>
+                        <a class="post-category post-category-design"
+                           href="/tag/<%= tags %>"><%= tags[k] %></a>
+                        <% }else if (k %3 == 1){ %>
+                        <a class="post-category post-category-pure"
+                           href="/tag/<%= tags[k] %>"> <%= tags[k] %></a>
+                        <% }else if (k %3 == 2){%>
+                        <a class="post-category post-category-js"
+                           href="/tag/<%= tags[k] %>"><%= tags[k] %></a>
+                        <% }else{ %>
+                        <a class="post-category" href="/tag/<%= tags[k] %>"><%= tags[k] %></a>
+                        <% }%>
+                        <% } %>
+                    </p>
+                </header>
+                <div class="post-description">
+                    <p>
+                        <%- article.content.replace(/<img/, '<img class="pure-img-responsive"') %>
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <div class="footer">
+            <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                <ul>
+                    <li><a href="http://purecss.io/">About</a></li>
+                    <li><a href="http://twitter.com/yuilibrary/">Twitter</a></li>
+                    <li><a href="http://github.com/superbogy/uandc/">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<% include foot %>

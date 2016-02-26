@@ -1,0 +1,82 @@
+<div class="content pure-u-1 pure-u-md-3-4">
+    <div>
+        <!-- A wrapper for all the blog posts -->
+        <%= for article <- @art_list do %>
+        <div class="posts">
+          
+            <h1 class="content-subhead"><%= datetime_string article.update_time %></h1>
+            <!-- A single blog post -->
+            <section class="post">
+                <header class="post-header">
+                    <img class="post-avatar" alt="Tilo Mitra&#x27;s avatar" height="48" width="48"
+                         src="img/common/tilo-avatar.png">
+
+                    <h2 class="post-title"><%= article.title %></h2>
+
+                    <p class="post-meta">
+                        By <a href="#" class="post-author"><%= article.author;%></a>
+                        <% tags = String.split(article.tags) %>
+                        <% size = Dict.size(tags) %>                       
+                        <%= for tag <- tags do %>
+                            <% tag = hd tags %>
+                            <%= if rem(Enum.random(0..size), 2) == 0 do %>
+                                <a class="post-category post-category-design" href="/tag/<%= tag %>"><%= tag %> </a>
+                            <% else %>
+                               <a class="post-category post-category-pure" href="/tag/<%= tag %>"><%= tag %> </a>
+                            <% end %>
+                        <% end %>
+                    </p>
+                </header>
+                <div class="post-description">
+                         <%= article.content %> 
+                </div>
+                <p style="text-align: center; letter-spacing: 4px"><a href="/article/<%= article.id %>">......</a></p>
+            </section>
+        </div>
+        <% end %>
+        <div class="posts">
+            <div class="page">
+                <div class="prev"><p>&lt;&lt; Latest</p></div>
+                <div class="next"><p>Older&gt;&gt;</p></div>
+                <input type="hidden" value="1" name="current-page">
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                <ul>
+                    <li><a href="http://purecss.io/">About</a></li>
+                    <li><a href="http://twitter.com/yuilibrary/">Twitter</a></li>
+                    <li><a href="http://github.com/superbogy/uandc/">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script>
+    var currentPage = $("input[name=current-page]").val();
+    $(".prev").click(function(){
+        if(currentPage > 1)
+            window.location.href = '/?page=' + --currentPage;
+    });
+
+    $(".next").click(function(){
+     if(currentPage < 4)
+     window.location.href = '/?page=' + ++currentPage;
+     });
+
+    $(".nav-item").click(function () {
+        $(".home").hide();
+        $(".nav-home").show();
+    });
+    $(".back").click(function(){
+       $(".home").show();
+        $(".nav-home").hide();
+    });
+    $(document).ready(function() {
+        $('pre').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>

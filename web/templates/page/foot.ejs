@@ -1,0 +1,14 @@
+<script>
+
+    $(".menu-link").click(function () {
+        var sidebar = $(".sidebar");
+        if(sidebar.hasClass("menu-active"))
+            sidebar.removeClass("menu-active");
+        else{
+            sidebar.addClass("menu-active");
+            $(this).css("margin-left", "0px");
+        }
+    });
+</script>
+</body>
+</html>
