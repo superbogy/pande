@@ -28,3 +28,7 @@ config :phoenix, :generators,
   migration: true,
   binary_id: false
 
+
+  config :plug, :mimes, %{
+    "application/vnd.api+json" => ["json-api"]
+}

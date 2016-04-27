@@ -8,7 +8,7 @@ defmodule Pande.User do
 	If no params are provided, an invalid changeset is returned
 	with no validation performed.
 	  """
-	schema "crab_user" do
+	schema "user" do
 		field :password, :string
 		field :username, :string
 		field :email, :string

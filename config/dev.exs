@@ -36,7 +36,7 @@ config :phoenix, :stacktrace_depth, 20
 config :pande, Pande.Repo,
   adapter: Ecto.Adapters.MySQL,
   username: "root",
-  password: "123456",
+  password: "123123",
   database: "crab",
   hostname: "localhost",
-  pool_size: 10
+  pool_size: 5

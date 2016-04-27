@@ -1,0 +1,12 @@
+.main{
+  margin: 50px auto;
+  width: 50%;
+  height: 500px;
+  background-image:url(http://mulberry.b0.upaiyun.com/demo/rain.jpg);
+  -moz-background-size: 100% 100%; /*  Firefox 3.6 */
+  -o-background-size: 100% 100%;/* Opera 9.5 */
+  -webkit-background-size: 100% 100%;/* Safari 3.0 */
+  background-size: 100% 100%;/*  Firefox 4.0 and other CSS3-compliant browsers */
+  -moz-border-image: url(http://mulberry.b0.upaiyun.com/demo/rain.jpg) 0; /* Firefox 3.5 */
+  filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://mulberry.b0.upaiyun.com/demo/rain.jpg', sizingMethod='scale');/* for < ie9 */
+}

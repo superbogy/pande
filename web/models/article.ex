@@ -1,7 +1,8 @@
 defmodule Pande.Article do
 	use Pande.Web, :model
 
-	schema "crab_article" do
+  @derive {Poison.Encoder, only: [:title, :tags,:cate_id, :tags, :from_url, :type, :click_num, :create_time]}
+	schema "article" do
 		field :title, :string
 		field :cate_id, :integer
 		field :author, :string
@@ -10,18 +11,18 @@ defmodule Pande.Article do
 		field :from_url, :string
 		field :is_show, :integer
 		field :type, :string
-		field :visit, :integer
+		field :click_num, :integer
 		field :praise, :integer
 		field :create_time, :integer
 		field :update_time, Ecto.DateTime
 		# timestamp
 	end
 
-	@pagesize 10
-	def article_list(repo, page \\ 1, pagesize \\ @pagesize) do
-		offset = (page - 1) * pagesize
-		query = from a in __MODULE__, order_by: [{:desc, a.create_time}], offset: ^offset, limit: ^pagesize
-		repo.all(query)
-	end
-
+  def getTimeLine(query \\ __MODULE__) do
+    from a in query,
+      where: a.id < 10,
+#      group_by: date_add(a.update_time, -1 , "week"),
+      group_by: fragment("monthname", a.update_time),
+      select: {count(a.id)}
+   end
 end

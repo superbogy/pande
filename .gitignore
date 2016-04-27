@@ -2,3 +2,5 @@
 /cover
 erl_crash.dump
 *.ez
+/dist
+/.idea

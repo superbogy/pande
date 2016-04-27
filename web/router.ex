@@ -14,9 +14,10 @@ defmodule Pande.Router do
   end
 
   scope "/", Pande do
-    pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
+    pipe_through :api # Use the default browser stack
+    
+    resources "/", PageController
+    get "/cate/:id", PageController, :category
     get "/detail/:id", PageController, :detail
   end
 
