@@ -9,6 +9,7 @@ const initialState = [
 ];
 
 export default function todos(state = initialState, action) {
+  console.log("this is action " + action.text);
   switch (action.type) {
     case ADD_TODO:
       return [

@@ -2,13 +2,14 @@
  * Created by bugbear on 16/4/27.
  */
 import React, { Component, PropTypes } from 'react'
-import AppBar from 'material-ui/lib/app-bar';
 import style from './index.scss';
+import IconButton from 'material-ui/lib/icon-button';
+
 
 class MainSection extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { filter: 1 }
+    this.state = { filter: 1 };
   }
 
   handleClearCompleted() {
@@ -18,24 +19,25 @@ class MainSection extends Component {
   handleTest() {
     console.log(this.props);
   }
-  // renderToggleAll(completedCount) {
-  //   const { pande, actions } = this.props;
-  //   if (pande.length > 0) {
-  //     return (
-  //       <input className="toggle-all"
-  //              type="checkbox"
-  //              checked={completedCount === pande.length}
-  //              onChange={actions.completeAll} />
-  //     );
-  //   }
-  // }
 
+  componentDidMount(){
+    this.props.actions.addTodo('如今已四海为家');
+    console.log("123123");
+  }
 
   render() {
     const { pande, actions } = this.props;
-
+    console.log(this.props);
     return (
-      <div>
+      <div className={style.main}>
+        <div className={style.introduce}>
+          <div className={style.page}> </div>
+          <p> 曾梦想仗剑走天涯, {this.props.pande[0].text}</p>
+        </div>
+          <IconButton
+            iconClassName="muidocs-icon-custom-github" tooltip="bottom-center"
+            tooltipPosition="bottom-center"
+          />
       </div>
     )
   }
