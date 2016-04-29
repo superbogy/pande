@@ -26,6 +26,7 @@
     "express": "^4.13.3",
     "express-validator": "^2.19.1",
     "javascript-brunch": "~1.8.0",
+    "jquery": "^2.2.3",
     "jsonwebtoken": "^5.7.0",
     "lodash": "^3.10.1",
     "material-ui": "^0.14.4",

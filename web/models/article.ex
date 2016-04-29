@@ -21,8 +21,7 @@ defmodule Pande.Article do
   def getTimeLine(query \\ __MODULE__) do
     from a in query,
       where: a.id < 10,
-#      group_by: date_add(a.update_time, -1 , "week"),
-      group_by: fragment("monthname", a.update_time),
+      group_by: date_add(a.update_time, -1 , "week"),
       select: {count(a.id)}
    end
 end

@@ -1,7 +1,11 @@
-import * as types from '../constants/ActionTypes'
+import * as types from '../constants/ActionTypes';
+import $ from 'jquery';
 
 export function addTodo(text) {
   console.log("-----====" + text);
+  $.ajax('http://127.0.0.1:4001/photos/3').success((data) => {
+    console.log(data.data);
+  });
   return { type: types.ADD_TODO, text }
 }
 

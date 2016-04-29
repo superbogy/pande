@@ -28,20 +28,19 @@ defmodule Pande.PageController do
 
     archive = []
     IO.inspect times
-    for time <- times do
-      IO.inspect time
-      date = elem time,  0
-      count = elem time, 1
-      if (is_tuple(time)) do
-        archive = List.insert_at(archive, -1, %{date: date, count:  count})
-      end
-      IO.inspect archive
+#    for time <- times do
+#      IO.inspect time
+#      date = elem time,  0
+#      count = elem time, 1
+#      if (is_tuple(time)) do
+#        archive = List.insert_at(archive, -1, %{date: date, count:  count})
+#      end
+#      IO.inspect archive
+#
+#    end
 
-    end
-
-    IO.inspect archive
     json conn, art_list
-#    json conn, %{art: art_list, cates: cates}
+    json conn, %{art: art_list, cates: cates}
   end
 
   def detail(conn, %{"id" => id}) do
